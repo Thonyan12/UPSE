@@ -342,7 +342,7 @@
         "z": "f7a4dc801d11af06",
         "name": "",
         "low": 1,
-        "high": "30",
+        "high": "20",
         "inte": "true",
         "property": "payload",
         "x": 360,
