@@ -1,0 +1,12 @@
+{
+    "name": "UPSE2025",
+    "description": "IOT projects 2025-2",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}
