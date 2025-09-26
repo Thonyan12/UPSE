@@ -1,8 +1,8 @@
 [
     {
-        "id": "f7a4dc801d11af06",
+        "id": "77c478836813f1ce",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Pruebas  mosquitto",
         "disabled": false,
         "info": "",
         "env": []
@@ -291,9 +291,129 @@
         }
     },
     {
-        "id": "d866bc01899c1c86",
+        "id": "171ae210cc5555d0",
+        "type": "mqtt-broker",
+        "name": "mqt",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "1c13972162de186e",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "921ae267e11f6c14",
+        "type": "mqtt in",
+        "z": "77c478836813f1ce",
+        "name": "",
+        "topic": "Utmach/FIC/IoT/6A/Anthony",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "171ae210cc5555d0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [
+                "cf3fa7a1c82f040d"
+            ]
+        ]
+    },
+    {
+        "id": "cf3fa7a1c82f040d",
+        "type": "debug",
+        "z": "77c478836813f1ce",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "de0259ad3ce07eee",
+        "type": "mqtt in",
+        "z": "77c478836813f1ce",
+        "name": "",
+        "topic": "local/a",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "1c13972162de186e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "cf3fa7a1c82f040d"
+            ]
+        ]
+    },
+    {
+        "id": "36d268381e00fb87",
         "type": "inject",
-        "z": "f7a4dc801d11af06",
+        "z": "77c478836813f1ce",
         "name": "",
         "props": [
             {
@@ -304,53 +424,143 @@
                 "vt": "str"
             }
         ],
-        "repeat": "3",
+        "repeat": "600",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "topic": "Hola",
-        "payload": "1",
-        "payloadType": "num",
-        "x": 180,
-        "y": 120,
+        "topic": "local/a",
+        "payload": "{   \"topic\": \"hola\",   \"hora\": \"12:00\",   \"mensaje\": \"Klk mosquitto\" }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 360,
         "wires": [
             [
-                "885960896ac4055b"
+                "cb401df6221f9383"
             ]
         ]
     },
     {
-        "id": "30119c6423d9e59f",
-        "type": "debug",
-        "z": "f7a4dc801d11af06",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 600,
-        "y": 120,
+        "id": "cb401df6221f9383",
+        "type": "mqtt out",
+        "z": "77c478836813f1ce",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1c13972162de186e",
+        "x": 510,
+        "y": 420,
         "wires": []
     },
     {
-        "id": "885960896ac4055b",
-        "type": "random",
-        "z": "f7a4dc801d11af06",
+        "id": "10e931c528996499",
+        "type": "inject",
+        "z": "77c478836813f1ce",
         "name": "",
-        "low": 1,
-        "high": "20",
-        "inte": "true",
-        "property": "payload",
-        "x": 360,
-        "y": 120,
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Saludo1",
+        "payload": "{   \"tópico\": \"Ciencia\",   \"conceptos\": [\"Física cuántica\", \"Biología molecular\", \"Astronomía\", \"Neurociencia\"] }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 440,
         "wires": [
             [
-                "30119c6423d9e59f"
+                "cb401df6221f9383"
             ]
         ]
+    },
+    {
+        "id": "21a246502147639b",
+        "type": "inject",
+        "z": "77c478836813f1ce",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Saludo2",
+        "payload": "{   \"tópico\": \"Arte\",   \"estilos\": [\"Impresionismo\", \"Cubismo\", \"Surrealismo\", \"Arte digital\"] }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 500,
+        "wires": [
+            [
+                "cb401df6221f9383"
+            ]
+        ]
+    },
+    {
+        "id": "7ab76b3771f63113",
+        "type": "inject",
+        "z": "77c478836813f1ce",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Saludo3",
+        "payload": "{   \"tópico\": \"Geografía\",   \"regiones\": [\"Sudamérica\", \"Asia Central\", \"África Subsahariana\", \"Europa del Este\"] }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 560,
+        "wires": [
+            [
+                "cb401df6221f9383",
+                "5395d8ed3ff84c7f"
+            ]
+        ]
+    },
+    {
+        "id": "5395d8ed3ff84c7f",
+        "type": "mqtt out",
+        "z": "77c478836813f1ce",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "171ae210cc5555d0",
+        "x": 510,
+        "y": 560,
+        "wires": []
     }
 ]
